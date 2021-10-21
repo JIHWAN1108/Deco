@@ -1,31 +1,29 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>day3 [2]-È¸¿ø µî·Ï</title>
-<!-- ½ºÅ¸ÀÏ Âü°í  -->
-<link rel="stylesheet" href="member.css?v=3">
-<link rel="stylesheet" href="../css/member.css">
+<title>day3 [2]-íšŒì› ë“±ë¡</title>
+<!-- ìŠ¤íƒ€ì¼ ì°¸ê³   -->
 <script>
 	function validCheck() {
 		const frm = document.frmReg;
-		//1. ÆĞ½º¿öµå´Â 8±ÛÀÚ ÀÌ»óÀÌ¾î¾ß ÇÑ´Ù.
+		//1. íŒ¨ìŠ¤ì›Œë“œëŠ” 8ê¸€ì ì´ìƒì´ì–´ì•¼ í•œë‹¤.
 		if (frm.password.value.length < 8){
-			alert('ÆĞ½º¿öµå´Â 8±ÛÀÚ ÀÌ»óÀ¸·Î ÇÏ¼¼¿ä.');
-			frm.password.focus();				// Æ÷Ä¿½º(Ä¿¼­) ÀÌµ¿ 
-			return false;						//ÇÔ¼ö°¡ Á¾·á.
+			alert('íŒ¨ìŠ¤ì›Œë“œëŠ” 8ê¸€ì ì´ìƒìœ¼ë¡œ í•˜ì„¸ìš”.');
+			frm.password.focus();				// í¬ì»¤ìŠ¤(ì»¤ì„œ) ì´ë™ 
+			return false;						//í•¨ìˆ˜ê°€ ì¢…ë£Œ.
 		}
-		//2. ³ªÀÌ : ÅÂ±× min,max ¹«½Ã -> 20 ~ 70 °ª ¹üÀ§·Î °Ë»çÇÕ´Ï´Ù.
-		if(frm.age.value < 1 || frm.age.value > 70 ){    //  return false ÇÒ Á¶°ÇÀ¸·Î ÀÛ¼º. ÀÌ À§Ä¡´Â À§ÀÇ Á¶°ÇÀÌ °ÅÁşÀÏ ¶§¸¸ ½ÇÇàµË´Ï´Ù. 
-			alert('³ªÀÌ´Â 20¼¼ ÀÌ»ó 70¼¼ ÀÌÇÏ·Î¸¸ °¡´ÉÇÕ´Ï´Ù. ');
+		//2. ë‚˜ì´ : íƒœê·¸ min,max ë¬´ì‹œ -> 20 ~ 70 ê°’ ë²”ìœ„ë¡œ ê²€ì‚¬í•©ë‹ˆë‹¤.
+		if(frm.age.value < 1 || frm.age.value > 70 ){    //  return false í•  ì¡°ê±´ìœ¼ë¡œ ì‘ì„±. ì´ ìœ„ì¹˜ëŠ” ìœ„ì˜ ì¡°ê±´ì´ ê±°ì§“ì¼ ë•Œë§Œ ì‹¤í–‰ë©ë‹ˆë‹¤. 
+			alert('ë‚˜ì´ëŠ” 20ì„¸ ì´ìƒ 70ì„¸ ì´í•˜ë¡œë§Œ ê°€ëŠ¥í•©ë‹ˆë‹¤. ');
 			frm.age.focus();
 			return false;
 		}
 		
-		//Ã¼Å©ÇÑ°Í ÀÌ ÇÑ°³µµ ¾øÀ¸¸é ¿©±â¿Í¼­ ½ÇÇàÇÕ´Ï´Ù.
+		//ì²´í¬í•œê²ƒ ì´ í•œê°œë„ ì—†ìœ¼ë©´ ì—¬ê¸°ì™€ì„œ ì‹¤í–‰í•©ë‹ˆë‹¤.
 		
 		return false;
 	}
@@ -34,66 +32,69 @@
 </head>
 <body>
 	<div style="width: 70%; margin: auto;">
-		<h3>È¸¿ø µî·Ï</h3>
-		<form action="membership.jsp" name="frmReg" method="post">
+		<h3>íšŒì› ë“±ë¡</h3>
+		<form action="memberAction.deco" name="frmReg" method="post">
 			<table style="width: 100%">
 				<tr>
-					<td><label>ÀÌ¸§</label></td>
-					<!--  required ÇÊ¼ö ÀÔ·Â  , readonly : ÀĞ±â¸¸.-->
-					<td><input type="text" name="name" placeholder="ÀÌ¸§ ÀÌ·Â(ÇÊ¼ö)"
+					<td><label>ì´ë¦„</label></td>
+					<!--  required í•„ìˆ˜ ì…ë ¥  , readonly : ì½ê¸°ë§Œ.-->
+					<td><input type="text" name="name" placeholder="ì´ë¦„ ì´ë ¥(í•„ìˆ˜)"
 						required></td>
 				</tr>
 				<tr>
-					<td><label>ÆĞ½º¿öµå</label></td>
-					<td><input type="password" name="password" placeholder="passwordÀ» ÀÔ·ÂÇÏ¼¼¿ä"></td>
+					<td><label>íŒ¨ìŠ¤ì›Œë“œ</label></td>
+					<td><input type="password" name="password" placeholder="passwordì„ ì…ë ¥í•˜ì„¸ìš”"></td>
 				</tr>
 				<tr>
-					<td><label>ÀÌ¸ŞÀÏ</label></td>
-					<td><input type="email" name="email" placeholder="emailÀ» ÀÔ·ÂÇÏ¼¼¿ä"></td>
+					<td><label>ì´ë©”ì¼</label></td>
+					<td><input type="email" name="email" placeholder="emailì„ ì…ë ¥í•˜ì„¸ìš”"></td>
 				</tr>
 				<tr>
-					<td><label>¼ºº°</label></td>
-					<td><input type="radio" value="male" name="gender">³²ÀÚ
-						<input type="radio" value="female" name="gender" checked>¿©ÀÚ
-						<!-- checked  ´Â ±âº» ¼±ÅÃ --></td>
+					<td><label>ì„±ë³„</label></td>
+					<td><input type="radio" value="ë‚¨" name="gender">ë‚¨ì
+						<input type="radio" value="ì—¬" name="gender" checked>ì—¬ì
+						<!-- checked  ëŠ” ê¸°ë³¸ ì„ íƒ --></td>
 				</tr>
 				<tr>
-					<td><label>³ªÀÌ</label></td>
+					<td><label>ë‚˜ì´</label></td>
 					<td><input type="number" name="age" min="10" max="99"
 						value="30"></td>
-					<!-- value´Â ±âº»°ª. type="number" ÀÏ ¶§´Â min,max ¼Ó¼º ¼³Á¤ °¡´É.-->
+					<!-- valueëŠ” ê¸°ë³¸ê°’. type="number" ì¼ ë•ŒëŠ” min,max ì†ì„± ì„¤ì • ê°€ëŠ¥.-->
 				</tr>
 				<tr>
-					<td><label>ÀüÈ­¹øÈ£</label></td>
-					<td><input type="phone" name="phone" placeholder="ÀüÈ­¹øÈ£À» ÀÔ·ÂÇÏ¼¼¿ä"></td>
+					<td><label>ì „í™”ë²ˆí˜¸</label></td>
+					<td><input type="text" name="phone" placeholder="ì „í™”ë²ˆí˜¸ì„ ì…ë ¥í•˜ì„¸ìš”"></td>
 				</tr>
 				<tr>
-					<td><label>ÁÖ¼Ò</label></td>
+					<td><label>ì£¼ì†Œ</label></td>
 					<td><select name="addr" id="addr_select">
-							<!-- value ¼Ó¼ºÀº ¼­¹ö¿¡ Àü´Ş½ÃÅ³ °ª -->
-							<option value="¼­¿ï °­³²±¸" selected>¼­¿ï °­³²±¸</option>
-							<option value="¼­¿ï °­¼­±¸" >¼­¿ï °­¼­±¸</option>
-							<option value="¼­¿ï °­ºÏ±¸">¼­¿ï °­ºÏ±¸</option>
-							<option value="¼­¿ï °­µ¿±¸">¼­¿ï °­µ¿±¸</option>
-							<option value="¼­¿ï Á¾·Î±¸">¼­¿ï Á¾·Î±¸</option>
+							<!-- value ì†ì„±ì€ ì„œë²„ì— ì „ë‹¬ì‹œí‚¬ ê°’ -->
+							<option value="ì„œìš¸ ê°•ë‚¨êµ¬" selected>ì„œìš¸ ê°•ë‚¨êµ¬</option>
+							<option value="ì„œìš¸ ê°•ì„œêµ¬" >ì„œìš¸ ê°•ì„œêµ¬</option>
+							<option value="ì„œìš¸ ê°•ë¶êµ¬">ì„œìš¸ ê°•ë¶êµ¬</option>
+							<option value="ì„œìš¸ ê°•ë™êµ¬">ì„œìš¸ ê°•ë™êµ¬</option>
+							<option value="ì„œìš¸ ì¢…ë¡œêµ¬">ì„œìš¸ ì¢…ë¡œêµ¬</option>
 					</select> 
 					<!-- <span id="addr_id"><input type="text" name="addr_etc" disabled="disabled" 
-							placeholder="±âÅ¸ Áö¿ªÀ» ÀÔ·ÂÇÏ¼¼¿ä." >
+							placeholder="ê¸°íƒ€ ì§€ì—­ì„ ì…ë ¥í•˜ì„¸ìš”." >
 					</span> --></td>
 				</tr>
-				
+				<tr>
+					<td><label>ë‹‰ë„¤ì„</label></td>
+					<td><input type="text" name="nickname" placeholder="ë‹‰ë„¤ì„ì„ ì…ë ¥í•˜ì„¸ìš”"></td>
+				</tr>
 				<tr>
 					<td colspan="2" style="text-align: center"><input
-						type="submit" value="°¡ÀÔÇÏ±â"> <!-- submit : ¼­¹ö¿¡°Ô µ¥ÀÌÅÍ¸¦ Á¦Ãâ (form action ¼Ó¼º°ª¿¡ ¼³Á¤µÈ url ·Î µ¥ÀÌÅÍ Àü´Ş.)
-						action ÀÌ .html Àº µ¥ÀÌÅÍ Àü¼ÛÈ®ÀÎÀº ¸øÇÕ´Ï´Ù. url ÀÌµ¿¸¸ È®ÀÎ!!--> <input
-						type="reset" value="´Ù½Ã¾²±â"></td>
+						type="submit" value="ê°€ì…í•˜ê¸°"> <!-- submit : ì„œë²„ì—ê²Œ ë°ì´í„°ë¥¼ ì œì¶œ (form action ì†ì„±ê°’ì— ì„¤ì •ëœ url ë¡œ ë°ì´í„° ì „ë‹¬.)
+						action ì´ .html ì€ ë°ì´í„° ì „ì†¡í™•ì¸ì€ ëª»í•©ë‹ˆë‹¤. url ì´ë™ë§Œ í™•ì¸!!--> <input
+						type="reset" value="ë‹¤ì‹œì“°ê¸°"></td>
 				</tr>
 			</table>
 		</form>
 	</div>
 	<script type="text/javascript">
 	document.getElementById("addr_select").addEventListener("change",function(){
-		if(this.value=="±âÅ¸"){ //this´Â getElementById("addr_select")¿ä¼Ò
+		if(this.value=="ê¸°íƒ€"){ //thisëŠ” getElementById("addr_select")ìš”ì†Œ
 //			document.getElementById("addr_id").style.display="inline-block";
 			document.frmReg.addr_etc.disabled=false;
 		}else {

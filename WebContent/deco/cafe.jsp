@@ -41,7 +41,7 @@
 	 	<li>상호</li>
 	 	<li>${cafe.name}</li>
 	 	<li>평점</li>
-	 	<li>${cafe.garde}</li>
+	 	<li>${cafe.grade}</li>
 	 </ul>
 	</li>
 	<li> 

@@ -14,5 +14,10 @@
 		INSERT INTO cafe ( name, content, phone, addr,menu,opentime,closetime,grade,location)
 		VALUES (#{name},#{content},#{phone},#{addr},#{menu},#{opentime},#{closetime},#{grade},#{location})
 	</insert>
+	<update id="update" parameterType="Cafe">
+ 		update cafe set name=#{name},content=#{content},phone=#{phone}, addr=#{addr}, grade=#{grade}, 
+ 		menu=#{menu},opentime=#{opentime},closetime=#{closetime},location=#{location}
+ 		where idx=#{idx}
+ 	</update>
 
 </mapper>

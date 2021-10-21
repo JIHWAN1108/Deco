@@ -35,12 +35,18 @@ public class CafeDao {
 	
 	public void insert(Cafe cafe) {
 		SqlSession mapper = factory.openSession();
-		mapper.insert("cafe.insert");
+		mapper.insert("cafe.insert", cafe);
 		mapper.commit();
 		mapper.close();
 	}
 	
-	
+	public void update(Cafe dto) {
+		SqlSession mapper = factory.openSession();
+		mapper.update("cafe.update",dto);
+		mapper.commit();
+		mapper.close();
+		
+	}
 	
 	
 	

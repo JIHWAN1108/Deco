@@ -8,15 +8,15 @@
 </head>
 <body>
   <h1>DECO</h1>
-  <form action="home.deco" method="post">
+  <form action="loginAction.deco" method="post">
     <label for="">아이디 : </label>
-    <input type="text"><br>
+    <input type="text" name="userId"><br>
     <label for="">비밀번호 : </label>
-    <input type="password">
+    <input type="password" name="password">
+    <input type="submit" value="login">
     <div>아직 회원이 아니신가요?</div>
-    <a href="join.deco">회원가입</a>
+    <a href="member.deco">회원가입</a>
     <a href="cafe.deco?idx=1" class=" ">상세보기</a>
   </form>
-<!DOCTYPE >
 </body>
 </html>

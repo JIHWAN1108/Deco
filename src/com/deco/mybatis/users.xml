@@ -9,12 +9,21 @@
   </select>
   
   <insert id="insert" parameterType="Users">
-  	insert into users(name,password,email,gender,age,phone,addr)
-	values(#{name},#{password},#{email},#{gender},#{age},#{phone},#{addr})
+  	insert into users(name,password,email,gender,age,phone,addr,nickname)
+	values(#{name},#{password},#{email},#{gender},#{age},#{phone},#{addr},#{nickname})
   </insert>
   
   <!-- 일단은 <나이, 전화번호> 만 수정 !! -->
   <update id="update" parameterType="Users">
   	update users set age=#{age},phone=#{phone} where idx=#{idx} 
   </update>
+  
+  
+  <!-- 로그인정보 session에 담기 위한 메소드 -->
+  <select id="loginCheck" parameterType="java.util.Map" resultType="SessionDto">
+		select * from users where email = #{email} 
+		and password = #{password}
+	</select>
+  
+  
 </mapper>

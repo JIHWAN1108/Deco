@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="users">
+
+	<select id="getDibs" resultType="Dibs" parameterType="String">
+		select * from dibs where nickname=#{nickname}
+	</select>
+  	
+  	<select id="getCafeDibs" resultType="Cafe" parameterType="int">
+  		select * from cafe where idx=#{idxCafe}
+  	</select>
+  	
+</mapper>

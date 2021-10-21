@@ -7,24 +7,24 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.deco.dao.CafeDao;
-import com.deco.dto.Cafe;
 
-public class ListAction implements Action {
+import com.deco.dao.ReviewDao;
+import com.deco.dto.Review;
+
+public class ReviewListAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		ActionForward forward = new ActionForward();
 		
-		CafeDao dao = CafeDao.getInstance();
+		ReviewDao dao = ReviewDao.getInstance();
 		
-		List<Cafe> list = dao.getList();
-		request.setAttribute("CafeList", list);
-		System.out.println(list);
-		System.out.println(list.size());
+		List<Review> list = dao.getList();
+		request.setAttribute("ReviewList", list);
+		
 		forward.isRedirect = false;
-		forward.url="deco/list.jsp";
+		forward.url="deco/reviewList.jsp";
 		return forward;
 	}
 
