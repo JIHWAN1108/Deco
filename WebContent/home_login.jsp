@@ -7,6 +7,7 @@
 <title>DECO 당신의 하루를 꾸미다.</title>
 </head>
 <body>
+<%@ include file="top.jsp" %>
   <h1>DECO</h1>
   <form action="loginAction.deco" method="post">
     <label for="">아이디 : </label>
@@ -18,5 +19,6 @@
     <a href="member.deco">회원가입</a>
     <a href="cafe.deco?idx=1" class=" ">상세보기</a>
   </form>
+  <%@ include file="bottom.jsp" %>
 </body>
 </html>

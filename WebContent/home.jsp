@@ -8,6 +8,7 @@
 <title>home 화면</title>
 </head>
 <body>
+<%@ include file="top.jsp" %>
 <h1 id="title"><img id="icon" alt="icon" src="img/icon2.png">deco</h1>
 <nav>
 	<ul>
@@ -35,6 +36,7 @@
  <a href="dibsList.deco" class=" ">찜목록</a>
  <a href="reviewList.deco" class=" ">리뷰목록</a>
 </section>
+<%@ include file="bottom.jsp" %>
 <hr>
 
 </body>

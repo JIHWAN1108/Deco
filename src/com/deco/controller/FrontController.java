@@ -84,17 +84,7 @@ public class FrontController extends HttpServlet {
 			forward = action.execute(request, response);
 		}
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		// 이 시점에서 forward 에 isREdirct 와 url 값이 저장되어있으면 OK!
+				
 				if(!forward.isRedirect()) {
 					RequestDispatcher rd = request.getRequestDispatcher(forward.getUrl());
 					rd.forward(request, response);
