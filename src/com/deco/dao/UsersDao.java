@@ -22,7 +22,7 @@ public class UsersDao {
 	
 	public Users getUser(int idx) {
 		SqlSession mapper = factory.openSession();
-		Users users = mapper.selectOne("getUser");
+		Users users = mapper.selectOne("getUser",idx);
 		mapper.close();
 		return users;
 	}

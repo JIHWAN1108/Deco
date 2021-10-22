@@ -11,7 +11,7 @@
 <div>
 </div>
 	<div>
-	<form action="review.deco" method="get">
+	
 	<h3>리뷰리스트</h3>
 	<c:forEach var="vo" items="${ReviewList}">
 	<ul>
@@ -20,7 +20,8 @@
 		<li>${vo.grade }</li>
 	</ul>
 	</c:forEach>
-	</form>
+	
 	</div>
+	<%@ include file="../bottom.jsp" %>
 </body>
 </html>

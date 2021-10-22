@@ -104,5 +104,6 @@
 		
 	});
 	</script>
+	<%@ include file="../bottom.jsp" %>
 </body>
 </html>

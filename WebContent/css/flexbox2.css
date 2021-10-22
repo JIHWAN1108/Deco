@@ -2,27 +2,31 @@
 /* a태그 모양 바꾸기 */
 a.menu{
     text-decoration: none;  /* 밑줄없애기 */
-    color: peachpuff;
+    color: #800080;
+    font-weight: bold;
+    padding: 15px 8px 4px 8px;
 }
 
 .container > li{
     /* border: 1px solid yellow; */
     list-style: none;   /* li로 만든 점 지움 */
     font-size: 1.5em;
-    padding: 8px 12px;
+    padding: 15px 8px 4px 8px;
     margin: 8px 12px;
     
 }
 /* hover선택자는 마우스가 올라갔을 때 */
 .container > li:hover{
-    background-color: coral;
+    background-color: #c0c0c0;
     border-radius: 4px; /* 마우스 올렸을 때 모서리 둥글게 */
 }
 .container{
-    background-color: brown;
-    display: flex;
+   /* background-image: linear-gradient(to right top, #ed77c7, #c999f4, #9cb7ff, #7dcfff, #82e1ff, #8aeaf6, #9df2eb, #b4f8e2, #bffbd6, #cefdc9, #e2febd, #f9fdb3); */
+   background-image:url('../img/layered-waves-haikei.svg');
+   background-size:auto;
+    display: flex; 
     justify-content: center;
-    padding: 12px 15px;
+    /* padding: 12px 15px; */
 }
 /* 반응형으로 레이아웃 만들기 
     해상도 최대 768px까지 동작하도록 설정
@@ -30,6 +34,7 @@ a.menu{
 @media screen and (max-width:768px) {
     .container{
         flex-direction: column;
+        
     }
     .container > li{
         text-align: center;
@@ -39,6 +44,7 @@ a.menu{
 경우가 있습니다.  */
 html,body {
     height: 100%;
+    
 }
 .map_wrap {
     display: flex;
@@ -58,12 +64,21 @@ html,body {
     color:#b2b2b2;
     margin-left: 10px;
     font-weight: bold;
+    
 }
 #login{
 	margin-left: 10%; 
 	padding-left: 10px;
 	padding-right: 10px;
 	font-size: 0.8em;
+	
+}
+#logintest{
+	margin-left: 10%; 
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 0.8em;
+	text-align: center;
 }
 .footerTitle{
 	color: rgb(124, 124, 124);

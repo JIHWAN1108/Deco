@@ -20,6 +20,7 @@ import com.deco.controller.action.LoginAction;
 import com.deco.controller.action.LogoutAction;
 import com.deco.controller.action.MemberAction;
 import com.deco.controller.action.ModifyAction;
+import com.deco.controller.action.ReviewAction;
 import com.deco.controller.action.ReviewListAction;
 
 @WebServlet("*.deco")
@@ -57,6 +58,8 @@ public class FrontController extends HttpServlet {
 		}else if(spath.equals("/logout.deco")) {
 			Action action = new LogoutAction();
 			forward = action.execute(request, response);
+		}else if(spath.equals("/login.deco")) {
+			forward = new ActionForward(false, "home_login.jsp");
 		}else if(spath.equals("/cafe.deco")) {
 			Action action = new CafeAction();
 			forward = action.execute(request, response);
@@ -82,9 +85,22 @@ public class FrontController extends HttpServlet {
 		}else if(spath.equals("/reviewList.deco")) {
 			Action action = new ReviewListAction();
 			forward = action.execute(request, response);
+		}else if(spath.equals("/review.deco")) {
+			Action action = new ReviewAction();
+			forward = action.execute(request, response);
 		}
 		
-				
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		// 이 시점에서 forward 에 isREdirct 와 url 값이 저장되어있으면 OK!
 				if(!forward.isRedirect()) {
 					RequestDispatcher rd = request.getRequestDispatcher(forward.getUrl());
 					rd.forward(request, response);

@@ -30,7 +30,6 @@ public class DibsListAction implements Action {
 		DibsDao dao = DibsDao.getInstance();
 		Dibs dibs = dao.getDibs(nickname);
 		List<Cafe> listCafe = new ArrayList<Cafe>();
-		
 		String dibCafe = dibs.getDibCafe();
 		System.out.println(dibCafe);	//시범 출력
 		StringTokenizer dibsCafe = new StringTokenizer(dibCafe,"/");

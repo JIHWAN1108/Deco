@@ -20,4 +20,6 @@ public class Cafe {
 	private String closetime;
 	private double grade;
 	private String location;
+	private String inimage;
+	private String outimage;
 }

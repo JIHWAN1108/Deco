@@ -9,7 +9,7 @@
 </head>
 
 <footer class="footer">
-	<p class = "footerTitle">주식회사 데코(DECO Co., Ltd.)</p>
+	<p class = "footerTitle">데코(DECO Co., Ltd.)</p>
 	
 	<ul>
 	<li>공동대표 : 선명진, 강규석, 이지환, 이현수, 이동욱</li>

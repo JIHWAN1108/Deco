@@ -4,10 +4,27 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="review">
-  <select id="getList" resultType="Review" parameterType="double">
+ 	<select id="getList" resultType="Review" parameterType="double">
 		select * from review order by grade desc
 	</select>
+	
+	<select id="getOne" resultType="Review" parameterType="int">
+ 		select * from review where idx=#{idx}
+ 	</select>  
+ 	
+ 	<select id="getReview" parameterType="int" resultType="Review">
+		select * from review where refidx= #{refdix}
+	</select>
+ 	
+ 
+ 	<insert id="insert" parameterType="Review">
+ 		insert into review (nickname, grade, content, category,refidx,imgfile)
+		values(#{nickname}, #{grade}, #{content}, #{category},#{refidx},#{imgfile})
+	</insert>
+	
+ 	<delete id="delete" parameterType="int">
+		delete from review where idx=#{idx}
+	</delete>
+	
+	
 </mapper>
-
-<!-- useGeneratedKeys="true"
-				keyColumn="idx" keyProperty="idx" -->

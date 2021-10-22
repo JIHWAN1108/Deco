@@ -28,18 +28,19 @@
 	<div>
 		<c:forEach var="vo" items="${dibsCafe}">
 			<ul>
-		    	<li>${vo.name }</li>
-		       	<li>${vo.content }</li>
-		       	<li>연락처 : ${vo.phone }</li>
-		       	<li>주소 : ${vo.addr }</li>
-		       	<li>메뉴 : ${vo.menu }</li>
-		       	<li>평점 : ${vo.grade }</li>
-		       	<li>영업시간 : ${vo.opentime} ~ ${vo.closetime}</li>
-		       	<li>${vo.location }</li>
+    	<li> <a href ="cafe.deco?idx=${vo.idx}">${vo.name }</a></li>
+    	<li>${vo.location }</li>
+    	<li>평점 : ${vo.grade }</li>
+       	<li>${vo.content }</li>
+       	<li>메뉴 : ${vo.menu }</li>
+       	 <li><img alt="cafe-out" src="/image/${vo.outimage}"> </li> 
+       	<li>영업시간 : ${vo.opentime} ~ ${vo.closetime}</li>
+       	<li>연락처 : ${vo.phone }</li>
+       	<li>주소 : ${vo.addr }</li>
 		    </ul>
 		</c:forEach>
 	</div>
-	
+	<%@ include file="../bottom.jsp" %>
 </body>
 </html>
 
