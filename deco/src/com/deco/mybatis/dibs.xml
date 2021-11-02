@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="dibs">
+
+	<select id="getDibs" resultType="Dibs" parameterType="String">
+		select * from dibs where nickname=#{nickname}
+	</select>
+  	
+  	<select id="getCafeDibs" resultType="Cafe" parameterType="int">
+  		select * from cafe where idx=#{idxCafe}
+  	</select>
+  	<select id="getFoodDibs" resultType="Food" parameterType="int">
+  		select * from food where fidx=#{fidxFood}
+  	</select>
+  	<select id="getShowsDibs" resultType="Shows" parameterType="int">
+  		select * from shows where sidx=#{sidxShows}
+  	</select>
+  	<select id="getEtcDibs" resultType="Etc" parameterType="int">
+  		select * from etc where eidx=#{eidxEtc}
+  	</select>
+  	<update id="updateCafeDibs" parameterType="String">
+  		update dibs set dibCafe=#{dibCafe} where nickname=#{nickname}
+  	</update>
+  	<update id="updateFoodDibs" parameterType="String">
+  		update dibs set dibFood=#{dibFood} where nickname=#{nickname}
+  	</update>
+  	<update id="updateShowsDibs" parameterType="String">
+  		update dibs set dibShow=#{dibShow} where nickname=#{nickname}
+  	</update>
+  	<update id="updateEtcDibs" parameterType="String">
+  		update dibs set dibEx=#{dibEx} where nickname=#{nickname}
+  	</update>
+  	
+  	<delete id="dibsDelete" parameterType="String">
+  		delete from dibs where nickname = #{nickname}
+  	</delete>
+</mapper>

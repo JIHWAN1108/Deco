@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="shows">
+	<!-- <select id="getList" resultType="Cafe">
+		select * from cafe order by grade desc
+	</select> -->
+	
+	<select id="getList" resultType="Shows" parameterType="java.util.Map">
+		select * from shows order by grade desc limit #{startNo},#{pageSize}
+	</select>
+	
+	<!-- idx로 카페정보 검색 -->
+	<select id="getOne" resultType="Shows" parameterType="int">
+		select * from shows where sidx = #{sidx}
+	</select>
+	
+	<select id="getCount" resultType="int">
+		select count(*) from shows
+	</select>
+	
+	
+	
+	<select id="getRan" resultType="Shows">
+		select * from shows order by rand() limit 1
+	</select>
+	
+	<insert id="insert" parameterType="Shows">
+		INSERT INTO shows( name, content, phone, addr,menu,opentime,closetime,grade,location,link)
+		VALUES (#{name},#{content},#{phone},#{addr},#{menu},#{opentime},#{closetime},#{grade},#{location},#{link})
+	</insert>
+	
+	<update id="update" parameterType="Shows">
+	 <if test="inimage!=null and outimage==null">
+		 update shows set name=#{name},content=#{content},phone=#{phone}, addr=#{addr}, grade=#{grade}, 
+ 		menu=#{menu},opentime=#{opentime},closetime=#{closetime},location=#{location},
+ 		inimage=#{inimage},link=#{link}
+ 		where sidx=#{sidx}</if>
+	 <if test="inimage ==null and outimage !=null">
+	 	update shows set name=#{name},content=#{content},phone=#{phone}, addr=#{addr}, grade=#{grade}, 
+ 		menu=#{menu},opentime=#{opentime},closetime=#{closetime},location=#{location},
+ 		outimage=#{outimage},link=#{link}
+ 		where sidx=#{sidx}</if>
+	 <if test="inimage==null and outimage==null">
+	 	update shows set name=#{name},content=#{content},phone=#{phone}, addr=#{addr}, grade=#{grade}, 
+ 		menu=#{menu},opentime=#{opentime},closetime=#{closetime},location=#{location},link=#{link}
+ 		where sidx=#{sidx}</if>
+	 <if test="inimage!=null and outimage!=null">
+ 		update shows set name=#{name},content=#{content},phone=#{phone}, addr=#{addr}, grade=#{grade}, 
+ 		menu=#{menu},opentime=#{opentime},closetime=#{closetime},location=#{location},
+ 		outimage=#{outimage},inimage=#{inimage},link=#{link}
+ 		where sidx=#{sidx}
+ 	</if>
+ 	</update>
+	
+	<update id="gradeup" parameterType="Shows">
+ 		update shows set grade=#{grade} where sidx=#{sidx}
+ 	</update>
+ 	<select id="showsBest" resultType="Shows">
+      select * from shows order by grade desc limit 3
+   </select>
+</mapper>

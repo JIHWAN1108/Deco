@@ -1,0 +1,303 @@
+:root {
+  /* color */
+  --black-color: #232323;
+  /* --white-color: #f9f8f8; */
+  --white-color: white;
+  --light-gray-color: #b2b2b2;
+  --dark-gray-color: rgb(124, 124, 124);
+  --purple-color: #6900ff;
+  --red-color: #ff0000;
+  --light-purple-color: #e9d9ff;
+
+  /* size */
+  --padding: 12px;
+
+  /* font size */
+  --font-title-topMid: 80px;
+  --font-title-bottom: 30px;
+  --font-large: 18px;
+  --font-medium: 14px;
+  --font-small: 12px;
+  --font-micro: 10px;
+
+  /* font-family */
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.decoList {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: var(--white-color);
+}
+
+.cateoryAndCheckbox {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: var(--white-color);
+}
+
+.category {
+  display: flex;
+  justify-content: center;
+  width: 900px;
+  padding: var(--padding);
+  align-items: center;
+  /* border-bottom: 2px solid var(--dark-gray-color); */
+  border-bottom: 2px solid var(--purple-color);
+  font-weight: bold;
+  background-color: var(--white-color);
+}
+
+.category a {
+  margin: 0 calc(var(--padding) * 4);
+  text-decoration: none;
+  color: var(--black-color);
+}
+
+.category a:hover {
+  text-decoration: underline;
+  color: var(--dark-gray-color);
+}
+
+.checkbox {
+  display: flex;
+  padding: var(--padding);
+  justify-content: space-between;
+  background-color: var(--white-color);
+  width: 900px;
+}
+
+/* .checkbox.main {
+} */
+
+.checkbox .subTitle {
+  width: 50px;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+.checkboxes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-left: var(--padding);
+}
+
+.checkboxes input {
+  /* margin-top: calc(var(--padding) / 2); */
+  margin-right: var(--padding);
+  margin-left: var(--padding);
+}
+
+.checkboxes label:hover {
+  color: var(--dark-gray-color);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.checkButton {
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+  align-items: center;
+}
+
+.checkButton button {
+  margin: calc(var(--padding) / 2) 0;
+  width: 35px;
+  height: 30px;
+  background-color: var(--purple-color);
+  color: var(--white-color);
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.checkButton button:hover {
+  background-color: var(--dark-gray-color);
+}
+
+/* 구분점 */
+.searchResult {
+  padding: var(--padding);
+  width: 900px;
+  text-align: center;
+  background-color: var(--white-color);
+  font-weight: bold;
+  font-size: var(--font-large);
+  /* border-top: 2px solid var(--dark-gray-color); */
+  border-top: 2px solid var(--purple-color);
+}
+
+/* 리스트 전체 */
+.lists {
+  display: flex;
+  flex-wrap: wrap;
+  width: 900px;
+  justify-content: space-evenly;
+  border-bottom: 2px solid var(--purple-color);
+  background-color: var(--white-color);
+}
+
+/* 이게 카페 하나 */
+.list {
+  display: flex;
+  width: 45%;
+  margin: var(--padding);
+  border: 2px solid var(--white-color);
+  border-radius: 5px;
+  text-decoration: none;
+  color: var(--black-color);
+}
+
+.list:hover {
+  /* border: 2px solid var(--purple-color); */
+  background-color: var(--light-purple-color);
+}
+
+.list .img {
+  margin: var(--padding);
+  border-radius: 5px;
+}
+
+.listContents {
+  display: flex;
+  flex-direction: column;
+  margin: var(--padding);
+  justify-content: center;
+  align-items: center;
+}
+
+.listContents li {
+  list-style: none;
+}
+
+.locationAndReveiwAndGrade {
+  margin: var(--padding) auto;
+  display: flex;
+}
+
+.locationAndReveiwAndGrade li {
+  float: left;
+  margin-right: 5px;
+  font-size: var(--font-medium);
+  color: var(--dark-gray-color);
+}
+.locationAndReveiwAndGrade li::after {
+  padding-left: 5px;
+  content: "|";
+  color: var(--light-gray-color);
+}
+.locationAndReveiwAndGrade li:last-child::after {
+  content: "";
+}
+
+.listName {
+  font-size: var(--font-large);
+  font-weight: bold;
+  padding: var(--padding);
+}
+
+.listText {
+  font-size: var(--font-medium);
+}
+
+/* 페이지 버튼 */
+
+.pagebutton {
+  width: 900px;
+  background-color: var(--white-color);
+  text-align: center;
+  padding: var(--padding);
+}
+
+.pagebutton a {
+  text-decoration: none;
+  color: var(--black-color);
+  font-weight: bold;
+  padding: 3px 7px;
+  border-radius: 3px;
+}
+
+.pagebutton a:hover {
+  color: var(--white-color);
+  font-weight: bold;
+  background-color: var(--purple-color);
+}
+
+.pagebutton .current {
+  color: var(--white-color);
+  background-color: var(--purple-color);
+}
+
+.topBtn {
+  position: fixed;
+  bottom: 50px;
+  right: 30px;
+}
+
+.topBtn a {
+  color: var(--purple-color);
+  background-color: var(--white-color);
+  border: 3px solid var(--purple-color);
+  padding: 5px 9px;
+  border-radius: 5px;
+}
+
+/* 반응형 디자인 */
+@media screen and (max-width: 768px) {
+  .cateoryAndCheckbox,
+  .category,
+  .checkbox,
+  .searchResult,
+  .lists,
+  .pagebutton {
+    width: 100%;
+  }
+
+  .lists {
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .list {
+    align-items: center;
+  }
+
+  .listContents {
+    width: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .locationAndReveiwAndGrade {
+    width: 100%;
+  }
+
+  .locationAndReveiwAndGrade li {
+    float: left;
+    margin-right: 5px;
+    font-size: var(--font-medium);
+    color: var(--dark-gray-color);
+  }
+  .locationAndReveiwAndGrade li::after {
+    padding-left: 5px;
+    content: "|";
+    color: var(--light-gray-color);
+  }
+  .locationAndReveiwAndGrade li:last-child::after {
+    content: "";
+  }
+}

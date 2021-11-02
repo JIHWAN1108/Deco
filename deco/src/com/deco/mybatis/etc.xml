@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="etc">
+	<!-- <select id="getList" resultType="Cafe">
+		select * from cafe order by grade desc
+	</select> -->
+	
+	<select id="getList" resultType="Etc" parameterType="java.util.Map">
+		select * from etc order by grade desc limit #{startNo},#{pageSize}
+	</select>
+	
+	<!-- idx로 카페정보 검색 -->
+	<select id="getOne" resultType="Etc" parameterType="int">
+		select * from etc where eidx = #{eidx}
+	</select>
+	
+	<select id="getCount" resultType="int">
+		select count(*) from etc
+	</select>
+	
+	<!-- 카테고리 별 지역체크박스 파라미터 넘겨받아서 카페 검색하는 메소드 -->
+	<select id="getLocation" resultType="Etc" parameterType="java.util.Map">
+		select * from etc where location = 
+		<foreach item="loca" index="index" collection="location" separator=" or location = ">
+				#{loca} 
+		</foreach>
+		order by grade desc limit #{startNo},#{pageSize}
+	</select>
+	
+	<select id="getRan" resultType="Etc">
+		select * from etc order by rand() limit 1
+	</select>
+	
+	<insert id="insert" parameterType="Etc">
+		INSERT INTO etc( name, content, phone, addr,menu,opentime,closetime,grade,location)
+		VALUES (#{name},#{content},#{phone},#{addr},#{menu},#{opentime},#{closetime},#{grade},#{location})
+	</insert>
+	
+	<update id="update" parameterType="Etc">
+	 <if test="inimage!=null and outimage==null">
+		 update etc set name=#{name},content=#{content},phone=#{phone}, addr=#{addr}, grade=#{grade}, 
+ 		menu=#{menu},opentime=#{opentime},closetime=#{closetime},location=#{location},
+ 		inimage=#{inimage}
+ 		where eidx=#{eidx}</if>
+	 <if test="inimage ==null and outimage !=null">
+	 	update etc set name=#{name},content=#{content},phone=#{phone}, addr=#{addr}, grade=#{grade}, 
+ 		menu=#{menu},opentime=#{opentime},closetime=#{closetime},location=#{location},
+ 		outimage=#{outimage}
+ 		where eidx=#{eidx}</if>
+	 <if test="inimage==null and outimage==null">
+	 	update etc set name=#{name},content=#{content},phone=#{phone}, addr=#{addr}, grade=#{grade}, 
+ 		menu=#{menu},opentime=#{opentime},closetime=#{closetime},location=#{location}
+ 		where eidx=#{eidx}</if>
+	 <if test="inimage!=null and outimage!=null">
+ 		update etc set name=#{name},content=#{content},phone=#{phone}, addr=#{addr}, grade=#{grade}, 
+ 		menu=#{menu},opentime=#{opentime},closetime=#{closetime},location=#{location},
+ 		outimage=#{outimage},inimage=#{inimage}
+ 		where eidx=#{eidx}
+ 	</if>
+ 	</update>
+	
+	<update id="gradeup" parameterType="Etc">
+ 		update etc set grade=#{grade} where eidx=#{eidx}
+ 	</update>
+ 	<select id="etcBest" resultType="Etc">
+      select * from etc order by grade desc limit 3
+   </select>
+</mapper>

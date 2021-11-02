@@ -1,0 +1,158 @@
+:root {
+  /* color */
+  --black-color: #232323;
+  --white-color: #f9f8f8;
+  --light-gray-color: #b2b2b2;
+  --dark-gray-color: rgb(124, 124, 124);
+  --purple-color: #6900ff;
+
+  /* size */
+  --padding: 12px;
+
+  /* font size */
+  --font-large: 18px;
+  --font-medium: 14px;
+  --font-small: 12px;
+  --font-micro: 10px;
+
+  /* font-family */
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.decoHome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+}
+
+.decoHome .homeTitle {
+  margin: 50px 0px;
+  font-size: 60px;
+  color: var(--black-color);
+  font-weight: bold;
+}
+
+.listBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--padding);
+}
+
+.listBtn a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--padding);
+  width: 300px;
+  height: 300px;
+  text-decoration: none;
+}
+
+.listBtn a div {
+  color: var(--black-color);
+  font-size: calc(var(--font-large) * 2);
+  font-weight: bold;
+}
+
+.listBtn .blue {
+  background-image: url(../img/blue1-a.svg);
+  background-size: 300px;
+}
+
+.listBtn .blue:hover {
+  background-image: url(../img/blue1-b.svg);
+  background-size: 300px;
+}
+
+.listBtn .green {
+  background-image: url(../img/green1-a.svg);
+  background-size: 300px;
+}
+
+.listBtn .green:hover {
+  background-image: url(../img/green2.svg);
+  background-size: 300px;
+}
+
+.listBtn .pink {
+  background-image: url(../img/pink1-a.svg);
+  background-size: 300px;
+}
+
+.listBtn .pink:hover {
+  background-image: url(../img/pink1-b.svg);
+  background-size: 300px;
+}
+
+.listBtn .purple {
+  background-image: url(../img/purple1-a.svg);
+  background-size: 300px;
+}
+
+.listBtn .purple:hover {
+  background-image: url(../img/purple1-b.svg);
+  background-size: 300px;
+}
+
+/* 밑에 내용 */
+
+.homeContents {
+  padding: var(--padding);
+  width: 55%;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px solid var(--dark-gray-color);
+  border-radius: 10px;
+  margin-bottom: 100px;
+}
+
+.homeContents div {
+  font-size: 20px;
+  padding: var(--padding) 0;
+  font-weight: bold;
+  font-family: AvenirNextLTPro-Bold, sans-serif;
+}
+
+.homeContents a {
+  padding-left: 10px;
+  text-decoration: none;
+  color: orange;
+}
+
+.homeContents a:hover {
+  text-decoration: underline;
+}
+
+/* 반응형 디자인 */
+@media screen and (max-width: 768px) {
+  .listBtn {
+    width: 650px;
+    flex-wrap: wrap;
+  }
+
+  .listBtn a div {
+    width: 100%;
+    text-align: center;
+  }
+
+  .homeContents {
+    width: 520px;
+  }
+}

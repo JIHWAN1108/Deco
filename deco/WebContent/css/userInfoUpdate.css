@@ -1,0 +1,152 @@
+:root {
+  /* color */
+  --black-color: #232323;
+  --white-color: #f9f8f8;
+  --light-gray-color: #b2b2b2;
+  --dark-gray-color: rgb(124, 124, 124);
+
+  /* size */
+  --padding: 12px;
+
+  /* font size */
+  --font-title-topMid: 80px;
+  --font-title-bottom: 30px;
+  --font-large: 18px;
+  --font-medium: 14px;
+  --font-small: 12px;
+  --font-micro: 10px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.decoJoin {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  padding: calc(var(--padding) * 3) 0;
+}
+
+.decoJoinLogo {
+  font-size: var(--font-title-bottom);
+  padding: var(--padding);
+  margin: var(--padding);
+}
+
+.joinContens {
+  list-style: none;
+  padding: var(--padding) 0;
+  padding-left: var(--padding);
+}
+
+.joinContens li {
+  padding: var(--padding);
+}
+
+.joinTitle {
+  padding: calc(var(--padding) / 2);
+  font-weight: bold;
+}
+
+.joinContens li .joinInput {
+  padding: calc(var(--padding) / 3 * 2);
+  border: 1px solid var(--light-gray-color);
+  margin-left: calc(var(--padding) / 2);
+  width: 100%;
+}
+
+.joinContens .joinEmail {
+  display: flex;
+  flex-direction: column;
+  padding: var(--padding) 0;
+  margin: 0 var(--padding);
+}
+
+#selectEmail {
+  padding: calc(var(--padding) / 3 * 2);
+  border: 1px solid var(--light-gray-color);
+  margin-left: calc(var(--padding) / 3 * 2);
+}
+
+.joinEmailSelect {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: none;
+  width: 337px;
+}
+
+.joinGenderAge {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.gender {
+  display: flex;
+  flex-direction: column;
+}
+
+.gender .genderInput {
+  display: flex;
+  width: calc(var(--padding) * 14);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.gender input {
+  width: calc(var(--padding) * 2);
+}
+
+.gender label {
+  width: calc(var(--padding) * 5);
+  text-align: center;
+}
+
+.age {
+  width: calc(var(--padding) * 14);
+}
+
+.age input {
+  width: 100%;
+}
+
+.joinAddrLi {
+  width: 100%;
+  padding-right: none;
+}
+
+.joinAddr {
+  display: flex;
+  justify-content: space-between;
+  margin: none;
+  padding-left: calc(var(--padding) / 3 * 2);
+  width: 100%;
+}
+
+#member_addr {
+  width: 100%;
+}
+
+.submit,
+#member_post {
+  background-color: var(--black-color);
+  color: var(--white-color);
+  border: none;
+}
+
+#member_post {
+  padding: 0 var(--padding);
+}
+
+/* 추가 */
+
+#str_email01 {
+  width: 100%;
+}

@@ -1,0 +1,174 @@
+:root {
+  /* color */
+  --black-color: #232323;
+  /* --white-color: #f9f8f8; */
+  --white-color: white;
+  --light-gray-color: #b2b2b2;
+  --dark-gray-color: rgb(124, 124, 124);
+  --purple-color: #6900ff;
+
+  /* size */
+  --padding: 12px;
+
+  /* font size */
+  --font-title-topMid: 80px;
+  --font-title-bottom: 30px;
+  --font-large: 18px;
+  --font-medium: 14px;
+  --font-small: 12px;
+  --font-micro: 10px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.decoDetail {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: var(--white-color);
+  width: 100%;
+}
+
+/* 제목 */
+.reviewListTitle {
+  font-size: calc(var(--font-title-bottom) * 3 / 2);
+  padding: var(--padding);
+  margin: calc(var(--padding) * 3);
+}
+
+.reviewLists {
+  border-bottom: 2px solid var(--purple-color);
+}
+
+/* 리뷰리스트 각각 */
+.reviewList {
+  margin: var(--padding);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: var(--padding);
+  width: 100%;
+  /* border-bottom: 1px dashed var(--light-gray-color); */
+  border-radius: 5px;
+}
+
+.reviewList:last-child {
+  border-bottom: none;
+}
+
+.reviewNameGrade {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  color: var(--black-color);
+}
+
+.reviewNameGrade li {
+  padding: var(--padding);
+}
+
+.reviewNameGrade li:nth-child(2) span:first-child {
+  margin-right: calc(var(--padding) / 2);
+}
+
+.reviewNameGrade li:nth-child(2) span:last-child {
+  color: orange;
+}
+
+.reviewNameGrade li:first-child {
+  font-weight: bold;
+  color: var(--purple-color);
+}
+
+.reviewText {
+  width: 550px;
+  height: 150px;
+  background-color: var(--white-color);
+  /* box-shadow: inset 0px 0px 5px 2px var(--light-gray-color); */
+  /* box-shadow: inset 0px 0px 10px 0px var(--purple-color); */
+  border: 1px solid var(--purple-color);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.reviewImg {
+  width: 195px;
+  border-radius: 4px;
+  border: 1px solid var(--light-gray-color);
+  margin: var(--padding);
+}
+
+.listBtn {
+  text-decoration: none;
+  background-color: var(--purple-color);
+  color: var(--white-color);
+  padding: 3px 5px;
+  font-size: var(--font-medium);
+  margin-left: 290px;
+}
+
+/* 페이지 버튼 */
+.pagebutton {
+  width: 900px;
+  background-color: var(--white-color);
+  text-align: center;
+  padding: var(--padding);
+}
+
+.pagebutton a {
+  text-decoration: none;
+  color: var(--black-color);
+  font-weight: bold;
+  padding: 3px 7px;
+  border-radius: 3px;
+}
+
+.pagebutton a:hover {
+  color: var(--white-color);
+  font-weight: bold;
+  background-color: var(--purple-color);
+}
+
+.pagebutton .current {
+  color: var(--white-color);
+  background-color: var(--purple-color);
+}
+
+.topBtn {
+  position: fixed;
+  bottom: 50px;
+  right: 30px;
+}
+
+.topBtn a {
+  color: var(--purple-color);
+  background-color: var(--white-color);
+  border: 3px solid var(--purple-color);
+  padding: 5px 9px;
+  border-radius: 5px;
+}
+
+/* 반응형 디자인 */
+@media screen and (max-width: 768px) {
+  .reviewContents {
+    width: 400px;
+  }
+
+  .reviewList {
+    width: 600px;
+  }
+
+  .reviewNameGrade,
+  .reviewText {
+    width: 100%;
+  }
+
+  .listBtn {
+    margin-left: 85px;
+  }
+}

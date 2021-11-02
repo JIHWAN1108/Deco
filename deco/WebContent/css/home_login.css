@@ -1,0 +1,219 @@
+:root {
+  /* color */
+  --black-color: #232323;
+  /* --white-color: #f8f8f8; */
+  --white-color: white;
+  --light-gray-color: #b2b2b2;
+  --dark-gray-color: rgb(124, 124, 124);
+  --purple-color: #6900ff;
+
+  /* size */
+  --padding: 12px;
+
+  /* font size */
+  --font-title-topMid: 80px;
+  --font-title-bottom: 30px;
+  --font-large: 18px;
+  --font-medium: 14px;
+  --font-small: 12px;
+  --font-micro: 10px;
+
+  /* font-family */
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+
+.deco {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--white-color);
+  color: var(--black-color);
+}
+
+/* svc */
+.custom-shape-divider-top-1635174409 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(56, 16, 88, 1) 0%,
+    rgba(228, 7, 255, 1) 100%
+  );
+}
+
+.decoTitleTop,
+.decoTitleMiddle {
+  font-size: var(--font-title-topMid);
+}
+.decoTitleTop_1,
+.decoTitleMiddle_2 {
+  color: var(--purple-color);
+  /* font-family: AvenirNextLTPro-Bold, sans-serif; */
+}
+
+.decoTitleTop {
+  padding-right: calc(var(--padding) * 15);
+  display: flex;
+}
+
+.decoTitleMiddle {
+  padding-left: calc(var(--padding) * 20);
+}
+
+.decoTitleBottom {
+  font-size: var(--font-title-bottom);
+  padding: var(--padding);
+}
+
+.decoContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  border-radius: 5%;
+  padding: var(--padding);
+  margin: calc(var(--padding) * 2);
+  background-color: var(--white-color);
+  box-shadow: 0px 0px 5px 2px var(--light-gray-color);
+  width: 300px;
+}
+
+.subTitle {
+  padding: calc(var(--padding) / 2);
+  font-size: var(--font-large);
+  color: var(--purple-color);
+  font-weight: bold;
+}
+
+.login input,
+.login input:focus {
+  margin: calc(var(--padding) / 2);
+  width: 92%;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid var(--black-color);
+  /* background-color: rgb(250, 241, 225); */
+  background-color: var(--white-color);
+  padding: calc(var(--padding) / 2);
+}
+
+.login .joinText {
+  font-size: var(--font-small);
+}
+
+.login .loginButton,
+.login .loginButton:focus {
+  border: none;
+  cursor: pointer;
+  outline: none;
+  width: 92%;
+  margin: 0 calc(var(--padding) / 2);
+  background: var(--purple-color);
+  color: var(--white-color);
+  border-radius: 3px;
+}
+
+button,
+button:focus {
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.test {
+  list-style: none;
+  margin: var(--padding) auto;
+}
+
+.test li {
+  float: left;
+  margin-right: 5px;
+}
+.test li::after {
+  padding-left: 5px;
+  content: "|";
+}
+.test li:last-child::after {
+  content: "";
+}
+
+.test li a {
+  font-family: -apple-system, BlinkMacSystemFont, helvetica,
+    "Apple SD Gothic Neo", sans-serif;
+  font-size: var(--font-small);
+  color: var(--dark-gray-color);
+  text-decoration: none;
+}
+
+.test li .firstA {
+  padding-left: 7px;
+}
+
+/* 반응형 디자인 */
+
+@media screen and (max-width: 768px) {
+  .decoTitleTop,
+  .decoTitleMiddle,
+  .decoTitleBottom {
+    display: none;
+  }
+
+  .decoContent,
+  .login {
+    height: 100%;
+    width: 500px;
+  }
+
+  .login {
+    justify-content: center;
+    border: none;
+    box-shadow: none;
+  }
+
+  .login input {
+    margin: 14px;
+  }
+
+  .subTitle {
+    font-size: calc(var(--font-title-bottom) * 2);
+    padding: 35px;
+  }
+  .subContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 250px;
+  }
+
+  .subContent input {
+    font-size: 20px;
+  }
+
+  .test li a {
+    font-size: 14px;
+  }
+}

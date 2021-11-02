@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="cafe">
+	<!-- <select id="getList" resultType="Cafe">
+		select * from cafe order by grade desc
+	</select> -->
+	
+	<select id="getList" resultType="Cafe" parameterType="java.util.Map">
+		select * from cafe order by grade desc limit #{startNo},#{pageSize}
+	</select>
+	
+	<!-- idx로 카페정보 검색 -->
+	<select id="getOne" resultType="Cafe" parameterType="int">
+		select * from cafe where idx = #{idx}
+	</select>
+	
+	<select id="getCount" resultType="int">
+		select count(*) from cafe
+	</select>
+	
+	<!-- 카테고리 별 지역체크박스 파라미터 넘겨받아서 카페 검색하는 메소드 -->
+	<select id="getLocation" resultType="Cafe" parameterType="java.util.Map">
+		select * from cafe where location = 
+		<foreach item="loca" index="index" collection="location" separator=" or location = ">
+				#{loca} 
+		</foreach>
+		order by grade desc limit #{startNo},#{pageSize}
+	</select>
+	
+	<select id="getRan" resultType="Cafe">
+		select * from cafe order by rand() limit 1
+	</select>
+	
+	<insert id="insert" parameterType="Cafe">
+		INSERT INTO cafe ( name, content, phone, addr,menu,opentime,closetime,grade,location)
+		VALUES (#{name},#{content},#{phone},#{addr},#{menu},#{opentime},#{closetime},#{grade},#{location})
+	</insert>
+	
+	<update id="update" parameterType="Cafe">
+	 <if test="inimage!=null and outimage==null">
+		 update cafe set name=#{name},content=#{content},phone=#{phone}, addr=#{addr}, grade=#{grade}, 
+ 		menu=#{menu},opentime=#{opentime},closetime=#{closetime},location=#{location},
+ 		inimage=#{inimage}
+ 		where idx=#{idx}</if>
+	 <if test="inimage ==null and outimage !=null">
+	 	update cafe set name=#{name},content=#{content},phone=#{phone}, addr=#{addr}, grade=#{grade}, 
+ 		menu=#{menu},opentime=#{opentime},closetime=#{closetime},location=#{location},
+ 		outimage=#{outimage}
+ 		where idx=#{idx}</if>
+	 <if test="inimage==null and outimage==null">
+	 	update cafe set name=#{name},content=#{content},phone=#{phone}, addr=#{addr}, grade=#{grade}, 
+ 		menu=#{menu},opentime=#{opentime},closetime=#{closetime},location=#{location}
+ 		where idx=#{idx}</if>
+	 <if test="inimage!=null and outimage!=null">
+ 		update cafe set name=#{name},content=#{content},phone=#{phone}, addr=#{addr}, grade=#{grade}, 
+ 		menu=#{menu},opentime=#{opentime},closetime=#{closetime},location=#{location},
+ 		outimage=#{outimage},inimage=#{inimage}
+ 		where idx=#{idx}
+ 	</if>
+ 	</update>
+	
+	<update id="gradeup" parameterType="Cafe">
+ 		update cafe set grade=#{grade} where idx=#{idx}
+ 	</update>
+ 	<select id="cafeBest" resultType="Cafe">
+      select * from cafe order by grade desc limit 3
+   </select>
+</mapper>

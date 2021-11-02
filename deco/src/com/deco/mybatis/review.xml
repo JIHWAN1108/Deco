@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="review">
+  	<select id="getList" resultType="Review" parameterType="double">
+		select * from review order by grade desc
+	</select>
+
+  	<select id="getList10" resultType="Review" parameterType="java.util.Map">
+		select * from review order by grade desc limit #{startNo},#{pageSize}
+	</select>
+	
+	<select id="getOne" resultType="Review" parameterType="int">
+ 		select * from review where idx=#{idx}
+ 	</select>  
+ 	
+ 	<select id="cafegetReview" parameterType="int" resultType="Review">
+		select * from review where refidx= #{refidx}
+	</select>
+	<select id="foodgetReview" parameterType="int" resultType="Review">
+		select * from review where fidx= #{fidx}
+	</select>
+	<select id="showsgetReview" parameterType="int" resultType="Review">
+		select * from review where sidx= #{sidx}
+	</select>
+	<select id="etcgetReview" parameterType="int" resultType="Review">
+		select * from review where eidx= #{eidx}
+	</select>
+ 	<select id="reviewList" resultType="Review" parameterType="String">
+ 		select *from review where nickname=#{nickname};
+ 	</select>
+ 
+ 	<insert id="cafeInsert" parameterType="Review">
+ 		insert into review (nickname, grade, content, category,refidx,imgfile)
+		values(#{nickname}, #{grade}, #{content}, #{category},#{refidx},#{imgfile})
+	</insert>
+	<insert id="foodInsert" parameterType="Review">
+ 		insert into review (nickname, grade, content, category,fidx,imgfile)
+		values(#{nickname}, #{grade}, #{content}, #{category},#{fidx},#{imgfile})
+
+	</insert>
+	<insert id="showsInsert" parameterType="Review">
+ 		insert into review (nickname, grade, content, category,sidx,imgfile)
+		values(#{nickname}, #{grade}, #{content}, #{category},#{sidx},#{imgfile})
+
+	</insert>
+	<insert id="etcInsert" parameterType="Review">
+ 		insert into review (nickname, grade, content, category,eidx,imgfile)
+		values(#{nickname}, #{grade}, #{content}, #{category},#{eidx},#{imgfile})
+
+	</insert>
+ 	<delete id="delete" parameterType="int">
+		delete from review where idx=#{idx}
+	</delete>
+	
+	
+	<!-- 개인 리뷰 가져오기 닉네임으로 -->
+	<select id="getCount"  resultType="int" parameterType="String">
+	 select count(*) from review where nickname=#{nickname}     
+	</select>
+
+	<select id="cafeCount"  resultType="int" parameterType="int">
+	 select count(*) from review where refidx=#{refidx}     
+	</select>
+	<select id="foodCount" resultType="int" parameterType="int">
+	 select count(*) from review where fidx=#{fidx}
+	</select>
+
+	<select id="showsCount" resultType="int" parameterType="int">
+	 select count(*) from review where sidx=#{sidx}
+	</select>
+
+	<select id="etcCount" resultType="int" parameterType="int">
+	 select count(*) from review where eidx=#{eidx}
+	</select>
+	
+	
+</mapper>
+
+<!-- useGeneratedKeys="true"
+				keyColumn="idx" keyProperty="idx" -->
